@@ -68,13 +68,13 @@ open class TGLParallaxCarousel: UIView {
         }
     }
     
-    open var currentPageIndicatorColor: UIColor {
+    open var currentPageIndicatorColor: UIColor = UIColor.red {
         didSet {
             pageControl.currentPageIndicatorTintColor = currentPageIndicatorColor
         }
     }
     
-    open var offPageIndicatorColor: UIColor {
+    open var offPageIndicatorColor: UIColor = UIColor.white {
         didSet {
             pageControl.pageIndicatorTintColor = offPageIndicatorColor
         }
