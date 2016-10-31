@@ -68,6 +68,18 @@ open class TGLParallaxCarousel: UIView {
         }
     }
     
+    open var currentPageIndicatorColor: UIColor {
+        didSet {
+            pageControl.currentPageIndicatorTintColor = currentPageIndicatorColor
+        }
+    }
+    
+    open var offPageIndicatorColor: UIColor {
+        didSet {
+            pageControl.pageIndicatorTintColor = offPageIndicatorColor
+        }
+    }
+    
     fileprivate var containerView: UIView!
     fileprivate let nibName = "TGLParallaxCarousel"
     open var items = [TGLParallaxCarouselItem]()
