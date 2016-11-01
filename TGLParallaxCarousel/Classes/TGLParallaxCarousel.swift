@@ -42,7 +42,7 @@ open class TGLParallaxCarousel: UIView {
             reloadData()
         }
     }
-    open var type: CarouselType = .threeDimensional {
+    open var type: CarouselType = .normal {
         didSet {
             reloadData()
         }
@@ -167,9 +167,20 @@ open class TGLParallaxCarousel: UIView {
 
         pageControl.numberOfPages = delegate.numberOfItemsInCarouselView(self)
         
+        if items.count == delegate.numberOfItemsInCarouselView(self) {
+            removeAllItems()
+        }
+        
         for index in 0..<delegate.numberOfItemsInCarouselView(self) {
             addItem(delegate.carouselView(self, itemForRowAtIndex: index))
         }
+    }
+    
+    fileprivate func removeAllItems() {
+        for item in items {
+            item.layer.removeFromSuperlayer()
+        }
+        items.removeAll()
     }
     
     func addItem(_ item: TGLParallaxCarouselItem) {
